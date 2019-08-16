@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Boobs.Core;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -16,6 +17,17 @@ namespace Boobs
         public MainPage()
         {
             InitializeComponent();
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            GetBoobsAsync();
+        }
+
+        private async Task GetBoobsAsync()
+        {
+            var service = new BoobsService();
+            var BoobsList = await service.GetBoobsAsync(10, 20);
         }
     }
 }
