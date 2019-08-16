@@ -1,6 +1,8 @@
 ﻿using Boobs.Core;
+using Boobs.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -14,20 +16,12 @@ namespace Boobs
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
+        BoobsListViewModel VM;
         public MainPage()
         {
             InitializeComponent();
-        }
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            GetBoobsAsync();
-        }
-
-        private async Task GetBoobsAsync()
-        {
-            var service = new BoobsService();
-            var BoobsList = await service.GetBoobsAsync(10, 20);
+            VM = new BoobsListViewModel();
+            this.BindingContext = VM;
         }
     }
 }

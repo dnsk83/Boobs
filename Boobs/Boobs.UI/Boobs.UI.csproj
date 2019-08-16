@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Boobs.Core\Boobs.Core.csproj" />
+    <ProjectReference Include="..\..\Boobs.ViewModels\Boobs.ViewModels.csproj" />
   </ItemGroup>
 
   <ItemGroup>
