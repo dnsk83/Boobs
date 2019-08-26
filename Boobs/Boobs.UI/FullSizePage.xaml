@@ -10,7 +10,7 @@
             <Image 
                    HorizontalOptions="FillAndExpand"
                    VerticalOptions="FillAndExpand"
-                   Source="{Binding Preview}" />
+                   Source="{Binding FullSize}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
