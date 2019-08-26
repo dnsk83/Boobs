@@ -28,11 +28,27 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Orientation="Vertical"
-                                     Margin="0,10,0,10">
-                            <Image Source="{Binding Preview}"
+                        <Grid Margin="10,6,0,6">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="4*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0"
+                                   Source="{Binding Preview}"
                                    HeightRequest="100" />
-                        </StackLayout>
+
+                            <StackLayout Orientation="Vertical"
+                                         HorizontalOptions="StartAndExpand"
+                                         Spacing="4"
+                                         Margin="0,6,0,6"
+                                         Grid.Column="1">
+                                <Label Text="{Binding Model}"
+                                       IsVisible="{Binding ModelVisibile}" />
+                                <Label Text="{Binding Author}"
+                                       IsVisible="{Binding AuthorVisibile}" />
+                                <Label Text="{Binding Rank}" />
+                            </StackLayout>
+                        </Grid>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>

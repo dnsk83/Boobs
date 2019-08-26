@@ -15,15 +15,17 @@ namespace Boobs.ViewModels
         }
 
         public string Model => $"Модель: {BoobsItem.Model}";
+        public bool ModelVisibile => !string.IsNullOrEmpty(BoobsItem.Model);
 
         public string Preview => $"http://media.oboobs.ru/{BoobsItem.Preview}";
         public string FullSize => GetFullSize();
 
         public long Id => BoobsItem.Id;
 
-        // public long Rank { get; set; }
+        public string Rank => $"Рейтинг: {BoobsItem.Rank}";
 
-        // public string Author { get; set; }
+        public string Author => $"Автор: {BoobsItem.Author}";
+        public bool AuthorVisibile => !string.IsNullOrEmpty(BoobsItem.Author);
 
         private string GetFullSize()
         {
