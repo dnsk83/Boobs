@@ -26,8 +26,13 @@ namespace Boobs.UI
 
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var itemVm = (BoobsItemViewModel)e.SelectedItem;
-            OpenFullSize(itemVm);
+            var selectedItem = ((ListView)sender).SelectedItem;
+            if (selectedItem != null)
+            {
+                var itemVm = (BoobsItemViewModel)e.SelectedItem;
+                OpenFullSize(itemVm);
+            }
+            ((ListView)sender).SelectedItem = null;
         }
 
         private void OpenFullSize(BoobsItemViewModel itemVm)
