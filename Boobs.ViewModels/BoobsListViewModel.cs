@@ -63,11 +63,11 @@ namespace Boobs.ViewModels
         private void LoadSortbyList()
         {
             SortByList = new List<OrderByItem>();
-            SortByList.Add(new OrderByItem(OrderBy.RankAsc, "Рейтиг ^"));
-            SortByList.Add(new OrderByItem(OrderBy.RankDesc, "Рейтинг v"));
-            SortByList.Add(new OrderByItem(OrderBy.InterestAsc, "Просмотры ^"));
-            SortByList.Add(new OrderByItem(OrderBy.InterestDesc, "Просмотры v"));
-            SortByList.Add(new OrderByItem(OrderBy.Random, "Случайным образом"));
+            SortByList.Add(new OrderByItem(OrderBy.RankAsc, "Рейтиг возрастание"));
+            SortByList.Add(new OrderByItem(OrderBy.RankDesc, "Рейтинг убывание"));
+            SortByList.Add(new OrderByItem(OrderBy.InterestAsc, "Просмотры возрастание"));
+            SortByList.Add(new OrderByItem(OrderBy.InterestDesc, "Просмотры убывание"));
+            SortByList.Add(new OrderByItem(OrderBy.Random, "Случайно"));
             SortByList.Add(new OrderByItem(OrderBy.Id, "ID файла"));
         }
 
