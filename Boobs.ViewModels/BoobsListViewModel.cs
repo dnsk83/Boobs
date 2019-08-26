@@ -12,6 +12,22 @@ namespace Boobs.ViewModels
         public ObservableCollection<BoobsItemViewModel> BoobsList { get; set; }
         public List<OrderByItem> SortByList { get; private set; }
         OrderByItem selectedSortingCriteria;
+        int displayFrom;
+        int displayRange;
+        int displayPage;
+        public int DisplayPage
+        {
+            get => displayPage;
+            set
+            {
+                if (displayPage != value)
+                {
+                    displayPage = value;
+                    displayFrom = (displayPage - 1) * displayRange;
+                    OnDisplayRangeChangedAsync();
+                }
+            }
+        }
         public OrderByItem SelectedSortingCriteria
         {
             get { return selectedSortingCriteria; }
@@ -26,12 +42,21 @@ namespace Boobs.ViewModels
             }
         }
 
+        public void SetDisplayPage(string value)
+        {
+            if(int.TryParse(value, out var valueInt))
+            {
+                DisplayPage = valueInt;
+            }
+        }
+
         public BoobsListViewModel()
         {
             BoobsList = new ObservableCollection<BoobsItemViewModel>();
+            displayFrom = 0;
+            displayRange = 10;
             GetBoobsAsync();
             LoadSortbyList();
-
             NotifyPropertyChanged(nameof(SortByList));
         }
 
@@ -46,10 +71,10 @@ namespace Boobs.ViewModels
             SortByList.Add(new OrderByItem(OrderBy.Id, "Photo ID"));
         }
 
-        private async Task GetBoobsAsync(OrderBy orderBy=OrderBy.Random)
+        private async Task GetBoobsAsync(OrderBy orderBy = OrderBy.Random)
         {
             var service = new BoobsService();
-            var list = await service.GetBoobsAsync(10, 10, orderBy);
+            var list = await service.GetBoobsAsync(displayFrom, displayRange, orderBy);
             BoobsList.Clear();
             foreach (var item in list)
             {
@@ -61,6 +86,11 @@ namespace Boobs.ViewModels
         private async Task OnSortingChangedAsync()
         {
             await GetBoobsAsync(SelectedSortingCriteria.Key);
+        }
+
+        private async Task OnDisplayRangeChangedAsync()
+        {
+            await GetBoobsAsync(SelectedSortingCriteria?.Key ?? OrderBy.Random);
         }
 
     }

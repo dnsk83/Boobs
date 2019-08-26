@@ -34,5 +34,11 @@ namespace Boobs.UI
         {
             Navigation.PushModalAsync(new FullSizePage(itemVm));
         }
+
+        private void Entry_Unfocused(object sender, FocusEventArgs e)
+        {
+            var value = ((Entry)sender).Text;
+            VM.SetDisplayPage(value);
+        }
     }
 }

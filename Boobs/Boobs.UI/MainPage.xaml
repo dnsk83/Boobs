@@ -36,6 +36,21 @@
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
+            <ListView.Footer>
+
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="CenterAndExpand">
+                    <Label Margin="10,0,0,0"
+                           VerticalOptions="Center"
+                           Text="Page:" />
+                    <Entry Margin="10,0,0,0"
+                           VerticalOptions="Center"
+                           Text="{Binding DisplayPage, Mode=OneWay}"
+                           Unfocused="Entry_Unfocused"
+                           Keyboard="Numeric"
+                           WidthRequest="50" />
+                </StackLayout>
+            </ListView.Footer>
         </ListView>
     </StackLayout>
 
