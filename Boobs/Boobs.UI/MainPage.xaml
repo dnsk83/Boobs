@@ -11,10 +11,25 @@
                   ItemsSource="{Binding BoobsList}"
                   HasUnevenRows="True"
                   ItemSelected="ListView_ItemSelected">
+            <ListView.Header>
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="FillAndExpand">
+                    <Label Margin="10,0,0,0"
+                           VerticalOptions="Center"
+                           Text="Order by:" />
+                    <Picker Margin="10,0,0,0"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="Center"
+                            ItemsSource="{Binding SortByList}"
+                            ItemDisplayBinding="{Binding Name}"
+                            SelectedItem="{Binding SelectedSortingCriteria}" />
+                </StackLayout>
+            </ListView.Header>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Orientation="Vertical">
+                        <StackLayout Orientation="Vertical"
+                                     Margin="0,10,0,10">
                             <Image Source="{Binding Preview}"
                                    HeightRequest="100" />
                         </StackLayout>
