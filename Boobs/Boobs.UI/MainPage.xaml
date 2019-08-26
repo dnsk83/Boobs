@@ -4,20 +4,19 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Boobs.MainPage">
+             x:Class="Boobs.UI.MainPage">
 
     <StackLayout>
         <ListView VerticalOptions="FillAndExpand"
                   ItemsSource="{Binding BoobsList}"
-                  HasUnevenRows="True">
+                  HasUnevenRows="True"
+                  ItemSelected="ListView_ItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Orientation="Vertical">
-                            <Label Text="{Binding Path=Model, StringFormat='Model: {0}'}" />
                             <Image Source="{Binding Preview}"
-                                   MinimumHeightRequest="100"
-                                   MinimumWidthRequest="100" />
+                                   HeightRequest="100" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

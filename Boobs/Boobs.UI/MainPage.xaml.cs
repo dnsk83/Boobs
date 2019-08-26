@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace Boobs
+namespace Boobs.UI
 {
     // Learn more about making custom code visible in the Xamarin.Forms previewer
     // by visiting https://aka.ms/xamarinforms-previewer
@@ -22,6 +22,17 @@ namespace Boobs
             InitializeComponent();
             VM = new BoobsListViewModel();
             this.BindingContext = VM;
+        }
+
+        private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var itemVm = (BoobsItemViewModel)e.SelectedItem;
+            OpenFullSize(itemVm);
+        }
+
+        private void OpenFullSize(BoobsItemViewModel itemVm)
+        {
+            Navigation.PushModalAsync(new FullSizePage(itemVm));
         }
     }
 }
