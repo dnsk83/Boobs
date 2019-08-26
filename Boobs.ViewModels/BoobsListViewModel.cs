@@ -44,7 +44,7 @@ namespace Boobs.ViewModels
 
         public void SetDisplayPage(string value)
         {
-            if(int.TryParse(value, out var valueInt))
+            if (int.TryParse(value, out var valueInt))
             {
                 DisplayPage = valueInt;
             }
@@ -63,12 +63,12 @@ namespace Boobs.ViewModels
         private void LoadSortbyList()
         {
             SortByList = new List<OrderByItem>();
-            SortByList.Add(new OrderByItem(OrderBy.RankAsc, "Rating +"));
-            SortByList.Add(new OrderByItem(OrderBy.RankDesc, "Rating -"));
-            SortByList.Add(new OrderByItem(OrderBy.InterestAsc, "Interest +"));
-            SortByList.Add(new OrderByItem(OrderBy.InterestDesc, "Interest -"));
-            SortByList.Add(new OrderByItem(OrderBy.Random, "Random"));
-            SortByList.Add(new OrderByItem(OrderBy.Id, "Photo ID"));
+            SortByList.Add(new OrderByItem(OrderBy.RankAsc, "Рейтиг ^"));
+            SortByList.Add(new OrderByItem(OrderBy.RankDesc, "Рейтинг v"));
+            SortByList.Add(new OrderByItem(OrderBy.InterestAsc, "Просмотры ^"));
+            SortByList.Add(new OrderByItem(OrderBy.InterestDesc, "Просмотры v"));
+            SortByList.Add(new OrderByItem(OrderBy.Random, "Случайным образом"));
+            SortByList.Add(new OrderByItem(OrderBy.Id, "ID файла"));
         }
 
         private async Task GetBoobsAsync(OrderBy orderBy = OrderBy.Random)
