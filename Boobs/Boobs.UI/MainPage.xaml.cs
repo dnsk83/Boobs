@@ -37,7 +37,7 @@ namespace Boobs.UI
 
         private void OpenFullSize(BoobsItemViewModel itemVm)
         {
-            Navigation.PushModalAsync(new FullSizePage(itemVm));
+            Navigation.PushAsync(new FullSizePage(itemVm));
         }
 
         private void Entry_Unfocused(object sender, FocusEventArgs e)
